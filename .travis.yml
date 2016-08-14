@@ -1,0 +1,14 @@
+language: ruby
+services:
+  - docker
+script:
+  - bundle exec rake commit
+cache:
+  bundler: true
+branches:
+  only:
+    - master
+notifications:
+  email:
+    on_success: change
+    on_failure: always

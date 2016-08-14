@@ -1,0 +1,6 @@
+.bundle
+.dockerignore
+.idea
+Dockerfile
+log
+tmp
