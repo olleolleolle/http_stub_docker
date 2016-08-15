@@ -3,4 +3,5 @@
 /.idea
 /Dockerfile
 log
+pkg
 tmp

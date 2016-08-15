@@ -3,7 +3,7 @@ $LOAD_PATH.push ::File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |spec|
   spec.name              = "http_stub_docker"
-  spec.version           = "0.0.1"
+  spec.version           = "0.0.2"
   spec.platform          = Gem::Platform::RUBY
   spec.authors           = %w{ dueckes }
   spec.summary           = "Docker tools for http_stub"
@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.rubyforge_project = "http_stub_docker"
   spec.license           = "MIT"
 
-  spec.files      = Dir.glob("./lib/**/*")
+  spec.files = %w{ bin lib resource }.map { |dir| Dir.glob("./#{dir}/**/{*,.*}") }.flatten
 
   spec.require_path = "lib"
 
