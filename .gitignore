@@ -1,6 +1,6 @@
-.bundle
-.dockerignore
-.idea
-Dockerfile
+/.bundle
+/.dockerignore
+/.idea
+/Dockerfile
 log
 tmp

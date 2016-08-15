@@ -1,0 +1,12 @@
+.bundle
+.idea
+.git
+.sass-cache
+.dockerignore
+.DS_Store
+.gitignore
+.travis.yml
+bin
+Dockerfile
+log
+tmp
