@@ -3,6 +3,7 @@ AllCops:
     - Gemfile
     - Rakefile
     - http_stub_docker.gemspec
+    - vendor/**/*
   TargetRubyVersion: 2.3
 
 # double quotes preferred, except in require
