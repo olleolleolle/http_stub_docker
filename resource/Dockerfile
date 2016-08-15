@@ -19,4 +19,4 @@ RUN bundle install --without development
 EXPOSE 80
 
 # Start server & tail logs in order to sustain foreground process
-CMD trap exit TERM; bundle exec rake stub_server:start && tail -f tmp/log/server_console.log
+CMD trap exit TERM; bundle exec rake stub_server:start && tail -f tmp/log/stub_server_console.log

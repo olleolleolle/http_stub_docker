@@ -30,6 +30,7 @@ module HttpStubDocker
       end
 
       def define_connect_task(args)
+        desc "Connects to a running container"
         task(:connect) do
           system "docker exec -it #{container_ids(args).first} /bin/sh"
         end
