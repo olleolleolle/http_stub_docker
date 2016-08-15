@@ -29,6 +29,19 @@ HttpStubDocker::Rake::TaskGenerator.new(
 ```
 3. Use the generated Rake tasks:
 ```
-# rake -T
-
+$ rake -T
+rake docker:build                  # Builds the image
+rake docker:clobber                # Removes Docker resources
+rake docker:commit                 # Ensures container runs
+rake docker:publish                # Publishes the container
+rake docker:setup                  # Creates Docker resources
+rake docker:start                  # Starts a container
+rake docker:stop                   # Stops all containers
+rake docker:test                   # Verifies container is running
+rake stub_server:configure         # Configure stub stub_server
+rake stub_server:restart           # Restart an potentially running stub_server
+rake stub_server:start             # Start a stub_server as a background process
+rake stub_server:start:foreground  # Start stub stub_server in the foreground
+rake stub_server:status            # Display the status of a stub_server process
+rake stub_server:stop              # Stop a running stub_server
 ```
