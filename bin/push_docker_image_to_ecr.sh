@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 APP_NAME=$1
 APP_VERSION=$2
 AWS_IMAGE_TAG="$AWS_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$APP_NAME:$APP_VERSION"
