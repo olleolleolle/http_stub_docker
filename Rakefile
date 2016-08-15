@@ -2,8 +2,6 @@ require 'bundler'
 require 'bundler/gem_tasks'
 Bundler.require(:default, :development)
 
-require 'rubocop/rake_task'
-
 require_relative 'lib/http_stub_docker'
 require_relative 'example/configurer'
 
@@ -15,8 +13,14 @@ task :clobber  do
   puts "Clobbered"
 end
 
-desc "Source code metrics analysis"
-RuboCop::RakeTask.new(:metrics) { |task| task.fail_on_error = true }
+begin
+  require 'rubocop/rake_task'
+
+  desc "Source code metrics analysis"
+  RuboCop::RakeTask.new(:metrics) { |task| task.fail_on_error = true }
+rescue LoadError
+  # Server Daemon tasks are usable without development Gems
+end
 
 task :validate do
   print " Travis CI Validation ".center(80, "*") + "\n"
