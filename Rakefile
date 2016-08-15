@@ -29,7 +29,7 @@ end
 HttpStubDocker::Rake::TaskGenerator.new(configurer: HttpStubDocker::Examples::Configurer,
                                         stub_name:  :example_stub,
                                         stub_dir:   File.expand_path("..", __FILE__),
-                                        port:       8001)
+                                        port:       3000)
 
 task :default => %w{ clobber metrics docker:setup docker:commit docker:clobber }
 
