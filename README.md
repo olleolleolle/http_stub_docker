@@ -27,6 +27,7 @@ How Do I Use It?
 
 1. In your `Gemfile`: `gem 'http_stub_docker'`
 2. In your `Rakefile`:
+
     ```ruby
     require 'http_stub_docker/rake/task_generator'
     
@@ -40,6 +41,7 @@ How Do I Use It?
     )
     ```
 3. Use the generated Rake tasks:
+
     ```
     $ rake -T
     rake docker:build                  # Builds the image
@@ -58,6 +60,7 @@ How Do I Use It?
     rake stub_server:stop              # Stop a running stub_server
     ```
 4. To publish to [AWS ECR](https://aws.amazon.com/ecr):
+
     * Ensure the [AWS CLI](https://aws.amazon.com/cli/) is installed
     * Establish the following environment variables: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_ID` and `AWS_REGION`
     * Ensure the AWS user has write access to ECR
