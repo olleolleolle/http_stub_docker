@@ -45,10 +45,10 @@ How Do I Use It?
     ```
     $ rake -T
     rake docker:build                  # Builds the image
-    rake docker:clobber                # Removes Docker resources
+    rake docker:clobber                # Removes created Dockerfile and other resources
     rake docker:commit                 # Ensures container runs
     rake docker:publish                # Publishes the container
-    rake docker:setup                  # Creates Docker resources
+    rake docker:setup                  # Creates Dockerfile and other resources in stub directory
     rake docker:start                  # Starts a container
     rake docker:stop                   # Stops all containers
     rake docker:test                   # Verifies container is running
