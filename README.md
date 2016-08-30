@@ -47,6 +47,7 @@ How Do I Use It?
     rake docker:build                  # Builds the image
     rake docker:clobber                # Removes created Dockerfile and other resources
     rake docker:commit                 # Ensures container runs
+    rake docker:connect                # Connects to a running container
     rake docker:publish                # Publishes the container
     rake docker:setup                  # Creates Dockerfile and other resources in stub directory
     rake docker:start                  # Starts a container
