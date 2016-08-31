@@ -34,10 +34,10 @@ How Do I Use It?
     HttpStubDocker::Rake::TaskGenerator.new(
       configurer:        MyStub::Configurer,
       stub_name:         :my_stub,
-      version:           "1.0.0",                          # Optional: only required for ECR deployment
-      external_base_uri: "http://some_host_name:3000",     # Optional: overrides default of http://localhost:3000
       stub_dir:          File.expand_path("..", __FILE__),
-      port:              3000
+      port:              5005,                             # Optional: overrides default of 5000
+      external_base_uri: "http://some-host:5005",          # Optional: overrides default of http://localhost:<port>
+      version:           "1.0.0"                           # Optional: only required for ECR deployment
     )
     ```
 3. Use the generated Rake tasks:
