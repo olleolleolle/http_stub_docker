@@ -9,7 +9,7 @@ module HttpStubDocker
 
         configurer = args[:configurer]
         configurer.stub_server.host = "localhost"
-        configurer.stub_server.port = 80
+        configurer.stub_server.port = args[:port] || 80
         HttpStub::Rake::ServerDaemonTasks.new(name: :stub_server, configurer: configurer)
       end
 
