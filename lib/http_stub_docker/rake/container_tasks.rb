@@ -15,7 +15,7 @@ module HttpStubDocker
       def define_build_task(args)
         desc "Builds the image"
         task(:build) do
-          system "docker build -t #{args[:stub_name]} ."
+          system "docker build -t #{args.stub_name} ."
         end
       end
 
@@ -23,9 +23,9 @@ module HttpStubDocker
         desc "Starts a container"
         task(:start) do
           system "docker run -d " \
-                 "-p #{args[:port]}:80 " \
-                 "-e STUB_EXTERNAL_BASE_URI=#{args[:external_base_uri]} " \
-                 "#{args[:stub_name]}"
+                 "-p #{args.port}:#{args.port} " \
+                 "-e STUB_EXTERNAL_BASE_URI=#{args.external_base_uri} " \
+                 "#{args.stub_name}"
         end
       end
 
@@ -44,7 +44,7 @@ module HttpStubDocker
       end
 
       def container_ids(args)
-        `docker ps -a --filter ancestor=#{args[:stub_name]} --format "{{.ID}}"`.split
+        `docker ps -a --filter ancestor=#{args.stub_name} --format "{{.ID}}"`.split
       end
 
     end

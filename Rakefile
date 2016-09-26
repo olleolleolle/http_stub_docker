@@ -22,6 +22,12 @@ rescue LoadError
   # Server Daemon tasks are usable without development Gems
 end
 
+HttpStubDocker::Rake::TaskGenerator.new(configurer: HttpStubDocker::Examples::Configurer,
+                                        stub_name:  :example_stub,
+                                        stub_dir:   File.expand_path("..", __FILE__),
+                                        port:       5005)
+task commit: %w{ docker:setup docker:commit docker:clobber }
+
 task :validate do
   print " Travis CI Validation ".center(80, "*") + "\n"
   result = `travis-lint #{::File.expand_path('../.travis.yml', __FILE__)}`
@@ -30,10 +36,6 @@ task :validate do
   raise "Travis CI validation failed" unless $?.success?
 end
 
-HttpStubDocker::Rake::TaskGenerator.new(configurer: HttpStubDocker::Examples::Configurer,
-                                        stub_name:  :example_stub,
-                                        stub_dir:   File.expand_path("..", __FILE__))
-
-task :default => %w{ clobber metrics docker:setup docker:commit docker:clobber }
+task :default => %w{ clobber metrics commit }
 
 task :pre_commit => %w{ default validate }

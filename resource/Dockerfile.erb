@@ -16,7 +16,7 @@ WORKDIR /root/app
 RUN bundle install --without development
 
 # Expose server port
-EXPOSE 80
+EXPOSE <%= port %>
 
 # Start server & tail logs in order to sustain foreground process
 CMD trap exit TERM; bundle exec rake stub_server:start && tail -f tmp/log/stub_server_console.log

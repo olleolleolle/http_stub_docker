@@ -1,6 +1,7 @@
 /.bundle
 /.dockerignore
 /.idea
+/.sass-cache
 /Dockerfile
 log
 pkg
