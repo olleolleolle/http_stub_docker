@@ -3,7 +3,7 @@ $LOAD_PATH.push ::File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |spec|
   spec.name              = "http_stub_docker"
-  spec.version           = "0.0.6"
+  spec.version           = "0.0.7"
   spec.platform          = Gem::Platform::RUBY
   spec.authors           = %w{ dueckes }
   spec.summary           = "Docker tools for http_stub"

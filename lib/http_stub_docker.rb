@@ -6,6 +6,7 @@ module HttpStubDocker
 
 end
 
+require_relative 'http_stub_docker/rake/arguments'
 require_relative 'http_stub_docker/rake/server_daemon_tasks'
 require_relative 'http_stub_docker/rake/resource_tasks'
 require_relative 'http_stub_docker/rake/container_tasks'
