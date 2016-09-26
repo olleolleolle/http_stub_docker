@@ -1,3 +1,8 @@
+** 0.0.9 **
+
+New:
+* `port` is configurable via environment variable
+
 ** 0.0.8 **
 
 Fix:

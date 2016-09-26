@@ -10,7 +10,7 @@ module HttpStubDocker
       attr_reader :configurer, :stub_name, :stub_dir, :port, :external_base_uri, :version, :task_prefix
 
       def initialize(args)
-        @port = DEFAULT_PORT
+        @port = ENV["port"] || DEFAULT_PORT
         args.each { |name, value| self.instance_variable_set("@#{name}", value) }
         @external_base_uri ||= "http://localhost:#{@port}"
         @task_prefix = current_rake_namespace

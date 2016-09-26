@@ -3,6 +3,7 @@ AllCops:
     - Gemfile
     - Rakefile
     - http_stub_docker.gemspec
+    - spec/**/*
     - vendor/**/*
   TargetRubyVersion: 2.3
 
