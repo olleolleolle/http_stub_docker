@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "http_stub", "~> 0.25"
 
-  spec.add_development_dependency "rubocop",     "~> 0.42"
+  spec.add_development_dependency "rubocop",     "~> 0.43"
   spec.add_development_dependency "wait_until",  "~> 0.3"
   spec.add_development_dependency "travis-lint", "~> 2.0"
 end
