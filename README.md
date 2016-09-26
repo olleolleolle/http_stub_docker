@@ -35,7 +35,7 @@ How Do I Use It?
       configurer:        MyStub::Configurer,
       stub_name:         :my_stub,
       stub_dir:          File.expand_path("..", __FILE__),
-      port:              5005,                             # Optional: overrides default of 5000
+      port:              5005,                             # Optional: overrides default of 5000, also configurable via PORT environment variable
       external_base_uri: "http://some-host:5005",          # Optional: overrides default of http://localhost:<port>
       version:           "1.0.0"                           # Optional: only required for ECR deployment
     )
