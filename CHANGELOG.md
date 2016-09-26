@@ -1,3 +1,8 @@
+** 0.0.8 **
+
+Fix:
+* .dockerignore ignores Dockerfile
+
 ** 0.0.7 **
 
 New:
