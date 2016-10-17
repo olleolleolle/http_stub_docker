@@ -5,7 +5,9 @@ module HttpStubDocker
 
       PUBLISH_SCRIPT = "#{HttpStubDocker::BASE_DIR}/bin/push_docker_image_to_ecr.sh".freeze
 
-      private_constant :PUBLISH_SCRIPT
+      VALID_STUB_RESPONSE_CODES = %w{ 200 302 }.freeze
+
+      private_constant :PUBLISH_SCRIPT, :VALID_STUB_RESPONSE_CODES
 
       def initialize(args)
         define_test_task(args)
@@ -21,7 +23,7 @@ module HttpStubDocker
           Bundler.require(:test)
           Wait.until!(description: "#{args.stub_name} is running", timeout_in_seconds: 10) do
             response = Net::HTTP.get_response(URI("#{args.external_base_uri}/http_stub"))
-            raise "#{args.stub_name} is not running" unless response.code == "200"
+            raise "#{args.stub_name} is not running" unless VALID_STUB_RESPONSE_CODES.include?(response.code)
           end
           puts "#{args.stub_name} is running"
         end

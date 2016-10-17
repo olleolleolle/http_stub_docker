@@ -3,7 +3,7 @@ $LOAD_PATH.push ::File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |spec|
   spec.name              = "http_stub_docker"
-  spec.version           = "0.0.9"
+  spec.version           = "0.0.10"
   spec.platform          = Gem::Platform::RUBY
   spec.authors           = %w{ dueckes }
   spec.summary           = "Docker tools for http_stub"
@@ -21,9 +21,9 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "rake", ">= 10.4"
 
-  spec.add_dependency "http_stub", "~> 0.25"
+  spec.add_dependency "http_stub", "~> 0.26"
 
-  spec.add_development_dependency "rubocop",     "~> 0.43"
+  spec.add_development_dependency "rubocop",     "~> 0.44"
   spec.add_development_dependency "rspec",       "~> 3.5"
   spec.add_development_dependency "wait_until",  "~> 0.3"
   spec.add_development_dependency "travis-lint", "~> 2.0"
