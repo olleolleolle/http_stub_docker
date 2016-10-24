@@ -5,9 +5,7 @@ module HttpStubDocker
 
       PUBLISH_SCRIPT = "#{HttpStubDocker::BASE_DIR}/bin/push_docker_image_to_ecr.sh".freeze
 
-      VALID_STUB_RESPONSE_CODES = %w{ 200 302 }.freeze
-
-      private_constant :PUBLISH_SCRIPT, :VALID_STUB_RESPONSE_CODES
+      private_constant :PUBLISH_SCRIPT
 
       def initialize(args)
         define_test_task(args)
@@ -22,8 +20,7 @@ module HttpStubDocker
         task(:test) do
           Bundler.require(:test)
           Wait.until!(description: "#{args.stub_name} is running", timeout_in_seconds: 10) do
-            response = Net::HTTP.get_response(URI("#{args.external_base_uri}/http_stub"))
-            raise "#{args.stub_name} is not running" unless VALID_STUB_RESPONSE_CODES.include?(response.code)
+            raise "#{args.stub_name} is not running" unless server_running?(args)
           end
           puts "#{args.stub_name} is running"
         end
@@ -45,6 +42,11 @@ module HttpStubDocker
         task(publish: "#{args.task_prefix}docker:build") do
           system "#{PUBLISH_SCRIPT} #{args.stub_name} #{args.version}"
         end
+      end
+
+      def server_running?(args)
+        response = Net::HTTP.get_response(URI("#{args.external_base_uri}/http_stub/status"))
+        response.body == (args.configurer ? "Initialized" : "Started")
       end
 
     end

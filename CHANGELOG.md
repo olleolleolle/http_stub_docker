@@ -1,3 +1,13 @@
+** 0.0.11 **
+
+Fix:
+* Considers stub server started when the servers status is initialized
+
+** 0.0.10 **
+
+Fix:
+* Considers stub server started when status code is 200 or 302
+
 ** 0.0.9 **
 
 New:
