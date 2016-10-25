@@ -13,8 +13,8 @@ task :clobber  do
   puts "Clobbered"
 end
 
-HttpStubDocker::Rake::TaskGenerator.new(configurer: HttpStubDocker::Examples::Configurer,
-                                        stub_name:  :example_stub,
+HttpStubDocker::Rake::TaskGenerator.new(configurer: HttpStubDocker::Example::Configurer,
+                                        stub_name:  :http_stub_docker_example_stub,
                                         stub_dir:   File.expand_path("..", __FILE__),
                                         port:       5005)
 
@@ -25,11 +25,8 @@ begin
   desc "Source code metrics analysis"
   RuboCop::RakeTask.new(:metrics) { |task| task.fail_on_error = true }
 
-  desc "Exercises unit tests"
-  ::RSpec::Core::RakeTask.new(:unit)
-
-  desc "Exercises acceptance tests"
-  task acceptance: %w{ docker:setup docker:commit docker:clobber }
+  desc "Exercises test specifications"
+  ::RSpec::Core::RakeTask.new(:spec)
 
   task :validate do
     print " Travis CI Validation ".center(80, "*") + "\n"
@@ -39,7 +36,7 @@ begin
     raise "Travis CI validation failed" unless $?.success?
   end
 
-  task :default => %w{ clobber metrics unit acceptance }
+  task :default => %w{ clobber metrics spec }
 
   task :pre_commit => %w{ default validate }
 rescue LoadError

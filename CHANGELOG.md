@@ -1,3 +1,8 @@
+** 0.0.12 **
+
+Fix:
+* `docker:publish` task fails (has non-zero exit code) when publication fails
+
 ** 0.0.11 **
 
 Fix:

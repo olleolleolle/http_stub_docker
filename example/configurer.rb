@@ -1,5 +1,5 @@
 module HttpStubDocker
-  module Examples
+  module Example
 
     class Configurer
       include HttpStub::Configurer

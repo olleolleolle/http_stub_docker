@@ -40,7 +40,7 @@ module HttpStubDocker
       def define_publish_task(args)
         desc "Publishes the container"
         task(publish: "#{args.task_prefix}docker:build") do
-          system "#{PUBLISH_SCRIPT} #{args.stub_name} #{args.version}"
+          raise "Error publishing container" unless system "#{PUBLISH_SCRIPT} #{args.stub_name} #{args.version}"
         end
       end
 
