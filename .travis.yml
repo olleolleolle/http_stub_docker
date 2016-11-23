@@ -6,8 +6,7 @@ rvm:
   - 2.3.1
 services:
   - docker
-cache:
-  bundler: true
+cache: bundler
 notifications:
   email:
     on_success: change
