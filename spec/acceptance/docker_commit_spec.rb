@@ -1,15 +1,16 @@
 describe "The docker:commit task" do
+  include_context "with Docker resources"
+
+  let(:task) { Rake::Task["#{task_prefix}docker:commit"] }
+
+  subject { task.invoke }
 
   context "when valid commit arguments are provided" do
 
-    subject { system "rake docker:commit" }
-
-    before(:example) { system "rake docker:setup" }
-
-    after(:example) { system "rake docker:clobber" }
+    let(:task_namespace) { :docker_commit_valid_arguments }
 
     it "executes without error" do
-      expect(subject).to be(true)
+      expect { subject }.to_not raise_error
     end
 
   end

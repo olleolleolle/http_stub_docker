@@ -2,6 +2,7 @@
 /.dockerignore
 /.idea
 /.sass-cache
+/ops/.terraform
 /Dockerfile
 log
 pkg

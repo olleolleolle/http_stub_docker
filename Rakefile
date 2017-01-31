@@ -13,10 +13,11 @@ task :clobber  do
   puts "Clobbered"
 end
 
-HttpStubDocker::Rake::TaskGenerator.new(configurer: HttpStubDocker::Example::Configurer,
-                                        stub_name:  :http_stub_docker_example_stub,
-                                        stub_dir:   File.expand_path("..", __FILE__),
-                                        port:       5005)
+HttpStubDocker::Rake::TaskGenerator.new(configurer:   HttpStubDocker::Example::Configurer,
+                                        stub_name:    :http_stub_docker_example_stub,
+                                        stub_dir:     File.expand_path("..", __FILE__),
+                                        port:         5005,
+                                        publish_tags: [ ENV["BUILD_NUMBER"] ])
 
 begin
   require 'rubocop/rake_task'
@@ -25,8 +26,29 @@ begin
   desc "Source code metrics analysis"
   RuboCop::RakeTask.new(:metrics) { |task| task.fail_on_error = true }
 
-  desc "Exercises test specifications"
-  ::RSpec::Core::RakeTask.new(:spec)
+  namespace :provision do
+
+    desc "Provisions AWS resources needed for specifications"
+    task :aws do
+      sh "ops/terraform.sh plan"
+      sh "ops/terraform.sh apply"
+    end
+
+  end
+
+  namespace :spec do
+
+    desc "Exercises specifications relying on local infrastructure"
+    ::RSpec::Core::RakeTask.new(:local) do |task|
+      task.rspec_opts = "--tag ~aws"
+    end
+
+    desc "Exercises specifications relying on aws infrastructure"
+    ::RSpec::Core::RakeTask.new(:aws) do |task|
+      task.rspec_opts = "--tag aws"
+    end
+
+  end
 
   task :validate do
     print " Travis CI Validation ".center(80, "*") + "\n"
@@ -36,9 +58,11 @@ begin
     raise "Travis CI validation failed" unless $?.success?
   end
 
-  task :default => %w{ clobber metrics spec }
+  task pre_commit: %w{ clobber metrics spec:local validate }
 
-  task :pre_commit => %w{ default validate }
+  task default: :pre_commit
+
+  task commit: %w{ clobber metrics spec:local provision:aws spec:aws }
 rescue LoadError
   # development Gems are not available in container
 end
