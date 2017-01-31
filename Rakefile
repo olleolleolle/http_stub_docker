@@ -30,8 +30,8 @@ begin
 
     desc "Provisions AWS resources needed for specifications"
     task :aws do
-      sh "ops/terraform.sh plan"
-      sh "ops/terraform.sh apply"
+      sh "spec/ops/terraform.sh plan"
+      sh "spec/ops/terraform.sh apply"
     end
 
   end

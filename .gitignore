@@ -2,8 +2,8 @@
 /.dockerignore
 /.idea
 /.sass-cache
-/ops/.terraform
 /Dockerfile
+.terraform
 log
 pkg
 tmp

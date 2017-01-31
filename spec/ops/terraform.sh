@@ -37,7 +37,7 @@ function sync_remote_config() {
     -backend=s3 \
     -backend-config="bucket=$CONFIG_BUCKET_NAME" \
     -backend-config="key=tests.tfstate" \
-    -backend-config="region=ap-southeast-2"
+    -backend-config="region=$AWS_REGION"
 
   terraform get
 }
@@ -49,7 +49,7 @@ function run_terraform() {
 }
 
 COMMAND="$1"
-TF_VAR_aws_region=$AWS_REGION
+TF_VAR_aws_region="$AWS_REGION"
 
 case "$COMMAND" in
   plan)
