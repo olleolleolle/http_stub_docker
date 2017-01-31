@@ -43,7 +43,7 @@ function sync_remote_config() {
 }
 
 function run_terraform() {
-  cd "ops"
+  cd "spec/ops"
   sync_remote_config
   terraform "$@"
 }
