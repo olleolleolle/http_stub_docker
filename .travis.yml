@@ -9,6 +9,7 @@ services:
   - docker
 env:
  - BUILD_NUMBER=$TRAVIS_BUILD_NUMBER
+ - AWS_DEFAULT_REGION=$AWS_REGION
 branches:
   only:
     - master
