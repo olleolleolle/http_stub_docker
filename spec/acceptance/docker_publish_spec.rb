@@ -28,9 +28,7 @@ describe "The docker:publish task" do
     it "uploads an image to AWS ECR with the specified tag" do
       subject
 
-      unless system "#{image_verification_script} #{stub_name} #{version}"
-        raise "Published image not found"
-      end
+      raise "Published image not found" unless system "#{image_verification_script} #{stub_name} #{version}"
     end
 
   end
