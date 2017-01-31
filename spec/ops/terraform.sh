@@ -45,11 +45,10 @@ function sync_remote_config() {
 function run_terraform() {
   cd "spec/ops"
   sync_remote_config
-  terraform "$@"
+  TF_VAR_aws_region="$AWS_REGION" terraform "$@"
 }
 
 COMMAND="$1"
-TF_VAR_aws_region="$AWS_REGION"
 
 case "$COMMAND" in
   plan)
