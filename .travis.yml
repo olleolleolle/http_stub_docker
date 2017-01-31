@@ -12,7 +12,11 @@ env:
 branches:
   only:
     - master
-cache: bundler
+cache:
+  bundler: true
+  pip: true
+  directories:
+    - $HOME/wheelhouse/
 before_install:
   - mkdir -p $HOME/.local/bin
   - export PATH=$HOME/.local/bin:$PATH
