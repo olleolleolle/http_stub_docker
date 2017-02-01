@@ -10,8 +10,8 @@ describe "The docker:publish task" do
     let(:task_namespace) { :docker_publish_invalid_args }
     let(:task_args)      { { version: "" } }
 
-    it "raises an error indicating that the container could not be published" do
-      expect { subject }.to raise_error("Error publishing container")
+    it "raises an error" do
+      expect { subject }.to raise_error
     end
 
   end
@@ -28,7 +28,7 @@ describe "The docker:publish task" do
     it "uploads an image to AWS ECR with the specified tag" do
       subject
 
-      raise "Published image not found" unless system "#{image_verification_script} #{stub_name} #{version}"
+      sh "#{image_verification_script} #{stub_name} #{version}"
     end
 
   end

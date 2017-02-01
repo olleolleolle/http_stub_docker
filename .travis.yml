@@ -1,10 +1,8 @@
 language: ruby
 rvm:
-  - 2.0
-  - 2.1
-  - 2.2
-  - 2.3
-  - 2.4
+  - 2.2.6
+  - 2.3.3
+  - 2.4.0
 services:
   - docker
 env:
@@ -14,11 +12,6 @@ env:
 branches:
   only:
     - master
-cache:
-  bundler: true
-  pip: true
-  directories:
-    - $HOME/wheelhouse/
 before_install:
   - mkdir -p $HOME/.local/bin
   - export PATH=$HOME/.local/bin:$PATH
@@ -29,7 +22,15 @@ before_install:
   - chmod +x $HOME/.local/bin/ecs-cli
   - wget https://releases.hashicorp.com/terraform/0.8.5/terraform_0.8.5_linux_amd64.zip -O /tmp/terraform.zip
   - unzip -d $HOME/.local/bin/ /tmp/terraform.zip
+  - gem update --system
+  - gem --version
+  - gem install bundler rake
 script: rake commit
+cache:
+  bundler: true
+  pip: true
+  directories:
+    - $HOME/wheelhouse/
 notifications:
   email:
     on_success: change

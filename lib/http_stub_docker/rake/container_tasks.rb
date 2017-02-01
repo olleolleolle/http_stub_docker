@@ -15,31 +15,31 @@ module HttpStubDocker
       def define_build_task(args)
         desc "Builds the image"
         task(:build) do
-          system "docker build -t #{args.stub_name} ."
+          sh "docker build -t #{args.stub_name} ."
         end
       end
 
       def define_start_task(args)
         desc "Starts a container"
         task(:start) do
-          system "docker run -d " \
-                 "-p #{args.port}:#{args.port} " \
-                 "-e STUB_EXTERNAL_BASE_URI=#{args.external_base_uri} " \
-                 "#{args.stub_name}"
+          sh "docker run -d " \
+             "-p #{args.port}:#{args.port} " \
+             "-e STUB_EXTERNAL_BASE_URI=#{args.external_base_uri} " \
+             "#{args.stub_name}"
         end
       end
 
       def define_connect_task(args)
         desc "Connects to a running container"
         task(:connect) do
-          system "docker exec -it #{container_ids(args).first} /bin/sh"
+          sh "docker exec -it #{container_ids(args).first} /bin/sh"
         end
       end
 
       def define_stop_task(args)
         desc "Stops all containers"
         task(:stop) do
-          container_ids(args).each { |container_id| system "docker rm -f #{container_id}" }
+          container_ids(args).each { |container_id| sh "docker rm -f #{container_id}" }
         end
       end
 

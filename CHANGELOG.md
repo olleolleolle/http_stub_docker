@@ -1,3 +1,15 @@
+** 0.1.0 **
+
+Breaking:
+* Supported Ruby versions now >= 2.2.2 (as per `http_stub`)
+
+Misc:
+* Bumped container Ruby to 2.4.0
+* Integration tests verify `docker:publish` successfully publishes containers
+
+Fix:
+* All tasks issuing shell commands fail when underlying command fails
+
 ** 0.0.12 **
 
 Fix:
