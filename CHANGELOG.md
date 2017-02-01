@@ -1,3 +1,8 @@
+** 0.1.2 **
+
+New:
+* Gem user has more flexibility on `http_stub` version in use
+
 ** 0.1.1 **
 
 Breaking:
