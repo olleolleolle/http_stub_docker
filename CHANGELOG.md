@@ -1,3 +1,8 @@
+** 0.1.1 **
+
+Breaking:
+* `HttpStubDocker::Rake::TaskGenerator` `version` option replaced by `publish_tags`
+
 ** 0.1.0 **
 
 Breaking:

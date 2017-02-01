@@ -7,7 +7,7 @@ module HttpStubDocker
 
       private_constant :DEFAULT_PORT
 
-      attr_reader :configurer, :stub_name, :stub_dir, :port, :external_base_uri, :version, :task_prefix
+      attr_reader :configurer, :stub_name, :stub_dir, :port, :external_base_uri, :publish_tags, :task_prefix
 
       def initialize(args)
         @port = ENV["port"] || DEFAULT_PORT

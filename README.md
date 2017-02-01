@@ -37,7 +37,7 @@ How Do I Use It?
       stub_dir:          File.expand_path("..", __FILE__),
       port:              5005,                             # Optional: overrides default of 5000, also configurable via PORT environment variable
       external_base_uri: "http://some-host:5005",          # Optional: overrides default of http://localhost:<port>
-      version:           "1.0.0"                           # Optional: only required for ECR deployment
+      publish_tags:      %w{ 1.0.0 }                       # Optional: only required for ECR deployment
     )
     ```
 3. Use the generated Rake tasks:
@@ -75,3 +75,8 @@ In your `Rakefile`:
 ```ruby
 task default: %w{ docker:setup docker:commit docker:publish }
 ```
+
+Acknowledgements
+----------------
+
+Thanks to [Ryan Davis](https://github.com/Rypac) for his contributions on publishing to ECR.

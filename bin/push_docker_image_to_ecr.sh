@@ -2,10 +2,17 @@
 
 set -e
 
-APP_NAME=$1
-APP_VERSION=$2
-AWS_IMAGE_TAG="$AWS_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$APP_NAME:$APP_VERSION"
+if [ "$#" -lt 2 ]; then
+  echo "usage: $(basename "$0") NAME TAG [TAGS...]" && exit 1
+fi
+
+app_name="$1"
+app_tags="${@:2}"
 
 eval $(aws ecr get-login --region "$AWS_REGION")
-docker tag "$APP_NAME" "$AWS_IMAGE_TAG"
-docker push "$AWS_IMAGE_TAG"
+IFS=' ' read -ra tags <<< "$app_tags"
+for tag in "${tags[@]}"; do
+  image_tag="$AWS_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$app_name:$tag"
+  docker tag "$app_name" "$image_tag"
+  docker push "$image_tag"
+done
