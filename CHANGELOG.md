@@ -1,3 +1,8 @@
+** 0.1.3 **
+
+Misc:
+* Excluded Rubocop config from Docker image
+
 ** 0.1.2 **
 
 New:

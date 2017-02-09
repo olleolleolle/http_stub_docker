@@ -1,11 +1,12 @@
 .bundle
-.idea
-.git
-.sass-cache
 .dockerignore
-.DS_Store
+.git
 .gitignore
+.idea
+.rubocop.yml
+.sass-cache
 .travis.yml
+.DS_Store
 bin
 Dockerfile
 log
