@@ -1,8 +1,8 @@
 module HttpStubDocker
   module Example
 
-    class Configurer
-      include HttpStub::Configurer
+    class StubConfigurator
+      include HttpStub::Configurator
 
       stub_server.add_scenario_with_one_stub!("A Scenario") do
         match_requests(uri: "/some_endpoint", method: :get)

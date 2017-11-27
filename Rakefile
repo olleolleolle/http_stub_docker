@@ -3,7 +3,7 @@ require 'bundler/gem_tasks'
 Bundler.require(:default, :development)
 
 require_relative 'lib/http_stub_docker'
-require_relative 'example/configurer'
+require_relative 'example/stub_configurator'
 
 directory "pkg"
 
@@ -13,11 +13,11 @@ task :clobber  do
   puts "Clobbered"
 end
 
-HttpStubDocker::Rake::TaskGenerator.new(configurer:   HttpStubDocker::Example::Configurer,
-                                        stub_name:    :http_stub_docker_example_stub,
-                                        stub_dir:     File.expand_path("..", __FILE__),
-                                        port:         5005,
-                                        publish_tags: [ ENV["BUILD_NUMBER"] ])
+HttpStubDocker::Rake::TaskGenerator.new(stub_configurator: HttpStubDocker::Example::StubConfigurator,
+                                        stub_name:         :http_stub_docker_example_stub,
+                                        stub_dir:          File.expand_path("..", __FILE__),
+                                        port:              5005,
+                                        publish_tags:      [ ENV["BUILD_NUMBER"] ])
 
 begin
   require 'rubocop/rake_task'

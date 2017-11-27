@@ -50,7 +50,7 @@ module HttpStubDocker
 
       def server_running?(args)
         response = Net::HTTP.get_response(URI("#{args.external_base_uri}/http_stub/status"))
-        response.body == (args.configurer ? "Initialized" : "Started")
+        response.body == "OK"
       end
 
     end

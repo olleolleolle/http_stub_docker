@@ -1,3 +1,12 @@
+** 0.2.0.beta1 **
+
+Breaking:
+* Renames `configurer` argument to `stub_configurator`
+
+Misc:
+* Bumps `http_stub` to `0.28.0.beta1`
+* Bumps container Ruby to 2.4.2
+
 ** 0.1.3 **
 
 Misc:
@@ -19,7 +28,7 @@ Breaking:
 * Supported Ruby versions now >= 2.2.2 (as per `http_stub`)
 
 Misc:
-* Bumped container Ruby to 2.4.0
+* Bumps container Ruby to 2.4.0
 * Integration tests verify `docker:publish` successfully publishes containers
 
 Fix:

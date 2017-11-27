@@ -32,7 +32,7 @@ How Do I Use It?
     require 'http_stub_docker/rake/task_generator'
     
     HttpStubDocker::Rake::TaskGenerator.new(
-      configurer:        MyStub::Configurer,
+      stub_configurator: My::Configurator,
       stub_name:         :my_stub,
       stub_dir:          File.expand_path("..", __FILE__),
       port:              5005,                             # Optional: overrides default of 5000, also configurable via PORT environment variable
@@ -53,7 +53,6 @@ How Do I Use It?
     rake docker:start                  # Starts a container
     rake docker:stop                   # Stops all containers
     rake docker:test                   # Verifies container is running
-    rake stub_server:configure         # Configure stub stub_server
     rake stub_server:restart           # Restart an potentially running stub_server
     rake stub_server:start             # Start a stub_server as a background process
     rake stub_server:start:foreground  # Start stub stub_server in the foreground

@@ -1,3 +1,5 @@
+require 'http_stub/configurator'
+
 require 'http_stub/rake/task_generators'
 
 module HttpStubDocker
