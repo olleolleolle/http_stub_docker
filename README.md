@@ -10,7 +10,6 @@ Status
 [![Build Status](https://travis-ci.org/MYOB-Technology/http_stub_docker.png)](https://travis-ci.org/MYOB-Technology/http_stub_docker)
 [![Gem Version](https://badge.fury.io/rb/http_stub_docker.png)](http://badge.fury.io/rb/http_stub_docker)
 [![Code Climate](https://codeclimate.com/github/MYOB-Technology/http_stub_docker/badges/gpa.svg)](https://codeclimate.com/github/MYOB-Technology/http_stub_docker)
-[![Dependency Status](https://gemnasium.com/MYOB-Technology/http_stub_docker.png)](https://gemnasium.com/MYOB-Technology/http_stub_docker)
 
 What Does It Do?
 ----------------
