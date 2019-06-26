@@ -4,7 +4,7 @@ require 'http_stub/rake/task_generators'
 
 module HttpStubDocker
 
-  BASE_DIR = File.expand_path("../..", __FILE__).freeze
+  BASE_DIR = File.expand_path("..", __dir__).freeze
 
 end
 

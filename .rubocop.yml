@@ -24,7 +24,7 @@ Style/RedundantSelf:
   Enabled: false
 Layout/ExtraSpacing:
   Enabled: false
-Layout/SpaceInsideBrackets:
+Layout/SpaceInsideArrayLiteralBrackets:
   Enabled: false
 Layout/SpaceInsidePercentLiteralDelimiters:
   Enabled: false

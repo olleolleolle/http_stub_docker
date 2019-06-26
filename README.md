@@ -22,6 +22,12 @@ Provides `rake` tasks that:
 * Verify that the container is running correctly
 * Deploy the container to [AWS ECR](https://aws.amazon.com/ecr)
 
+Requirements
+------------
+
+* Ruby >= 2.3
+* Docker >= 17.06
+
 How Do I Use It?
 ----------------
 

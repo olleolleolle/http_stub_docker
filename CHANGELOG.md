@@ -1,3 +1,13 @@
+** 0.2.0.beta2 **
+
+Breaking:
+* Docker >= 17.06 required for AWS ECR integration
+
+Misc:
+* Bumps `http_stub` to `0.28.0.beta2`
+* Bumps container Ruby to 2.6.3
+* Bumps development dependencies
+
 ** 0.2.0.beta1 **
 
 Breaking:
