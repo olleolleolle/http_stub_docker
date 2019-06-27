@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    http_stub_docker (0.2.0.beta2)
-      http_stub (= 0.28.0.beta2)
+    http_stub_docker (0.2.0)
+      http_stub (>= 0.27)
       rake (>= 12.3)
 
 GEM
@@ -27,7 +27,7 @@ GEM
       rake (>= 12.3)
       sys-proctree (~> 0.0)
       wait_until (~> 0.3)
-    http_stub (0.28.0.beta2)
+    http_stub (0.28.0)
       activesupport (~> 5.2)
       haml (~> 5.1)
       http_server_manager (~> 0.5)
