@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    http_stub_docker (0.2.0)
+    http_stub_docker (0.2.0.beta2)
       http_stub (>= 0.27)
       rake (>= 12.3)
 
