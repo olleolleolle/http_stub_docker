@@ -9,7 +9,6 @@ Gem::Specification.new do |spec|
   spec.description       = "Tools for building and distributing http_stub Docker containers"
   spec.email             = "matthew.ueckerman@myob.com"
   spec.homepage          = "http://github.com/MYOB-Technology/http_stub_docker"
-  spec.rubyforge_project = "http_stub_docker"
   spec.license           = "MIT"
 
   spec.files = %w{ bin lib resource }.map { |dir| Dir.glob("./#{dir}/**/{*,.*}") }.flatten
